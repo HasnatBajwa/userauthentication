@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">User Authentication</h1>
+    <div id="container">
+        <div id="userAuth">
+        <input class="userAuth" type="email" name="" id="userEmail" placeholder="Enter Your Email">
+        <input class="userAuth" type="password" name="" id="userPass" placeholder="Enter Your Password"><br>
+        <button id="login" class="login btn"> Login </button>
+         <button id="SignUp" class="signup btn">Sign Up</button>
+         <button id="logout" class="logout btn hidden">Log Out</button>
+    </div>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+    <script src="./script/app.js"></script>
+</body>
+</html>
