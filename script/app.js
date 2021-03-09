@@ -15,7 +15,7 @@
     const eMail = document.getElementById("userEmail");
     const userPass = document.getElementById("userPass");
     const btnLogin = document.getElementById("login");
-    const btnSignUp = document.getElementById("signUp");
+    const btnSignUp = document.getElementById("SignUp");
     const btnLogOut = document.getElementById("logout");
     // let Users Login
     btnLogin.addEventListener('click', e =>{
@@ -30,23 +30,29 @@
 
     // SignUp Function
     btnSignUp.addEventListener('click', e =>{
-
         const userEmail = eMail.value;
         const pass = userPass.value;
         const authentication = firebase.auth();
-        // Create a new User
-       const details = authentication.createUserWithEmailAndPassword(userEmail, pass);
-       details.catch(e => console.log(e.message));
-
+        // Create a New User
+       const details = authentication.signInWithEmailAndPassword(userEmail, pass);
+       details.catch(e => alert(`New User ${userEmail} Created`));
+ 
     });
+    // Logout function
+    btnLogOut.addEventListener('click', e =>{
+        firebase.auth().signOut();
+    });
+
     // Real User Validation
     firebase.auth().onAuthStateChanged(firebaseUser =>{
         if (firebaseUser) {
             
             console.log(firebaseUser);
+            btnLogOut.className='logout';
         }
         else{
             console.log("Not Logged In");
+            btnLogOut.className='hidden';
         }
 
     });
