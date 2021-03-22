@@ -25,7 +25,6 @@
         // Sign in
        const details = authentication.signInWithEmailAndPassword(userEmail, pass);
        details.catch(e => alert("User Doesnt Exist Please Signup to Continue"));
- 
     });
 
     // SignUp Function
@@ -34,8 +33,9 @@
         const pass = userPass.value;
         const authentication = firebase.auth();
         // Create a New User
-       const details = authentication.signInWithEmailAndPassword(userEmail, pass);
+       const details = authentication.createUserWithEmailAndPassword(userEmail, pass);
        details.catch(e => alert(`New User ${userEmail} Created`));
+
  
     });
     // Logout function
@@ -53,6 +53,7 @@
         else{
             console.log("Not Logged In");
             btnLogOut.className='hidden';
+
         }
 
     });
